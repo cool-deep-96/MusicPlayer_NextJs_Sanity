@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 
 
 
+
 interface Params {
     params: {songSlug: string}
 
@@ -32,6 +33,7 @@ const getSong = async (slug : string) => {
   return songData;
 }
 
+export const revalidate= 60;
 
 export const page = async ({params}: Params) => {
   const songData = await getSong(params?.songSlug);

@@ -4,9 +4,9 @@ import Image from "next/image"
 const About = () =>{
     return (<>
 
-    <div className=" fixed bottom-3 border-t-2  ">
+    <div className=" fixed bottom-3  px-2 w-40 lg:w-56 ">
         
-    <div className='flex flex-row gap-3 justify-center py-3'>
+    <div className='flex flex-row gap-3 justify-center lg:py-3'>
     <div className=" text-sm bold ">
             Visit My Profile: 
         </div>

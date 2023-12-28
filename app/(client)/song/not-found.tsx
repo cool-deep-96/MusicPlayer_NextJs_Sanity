@@ -4,8 +4,8 @@ import React from 'react'
 export const NotFound= () => {
   return (
     <>
-    <div className='flex  flex-col '>
-        <div >Song Not Found use search bar</div>
+    <div className='flex  flex-col place-self-center'>
+        <div className=''>Song Not Found</div>
     <Link href={`/`}> 
      return to home page
     </Link>

@@ -9,6 +9,7 @@ import { client } from '@/sanity/lib/client'
 import { Song } from '../utils/Interface'
 import SongCard from '../components/SongCard'
 
+
 const inter = Inter({ subsets: ['latin'] })
 const FiraCode = Fira_Code({subsets: ['latin']})
 
@@ -33,6 +34,8 @@ const getSong = async () => {
   const data = await client.fetch(querry);
   return data
 }
+
+export const revalidate = 60;
 
 export default async function RootLayout({
   children,
