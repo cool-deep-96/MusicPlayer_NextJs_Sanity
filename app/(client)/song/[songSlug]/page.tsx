@@ -35,7 +35,7 @@ const getSong = async (slug : string) => {
 
 export const revalidate= 60;
 
-export const page = async ({params}: Params) => {
+export  default async  function Page({params}: Params){
   const songData = await getSong(params?.songSlug);
   console.log(songData);
 
@@ -55,4 +55,4 @@ export const page = async ({params}: Params) => {
   )
 }
 
-export default page
+

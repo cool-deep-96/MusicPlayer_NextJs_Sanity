@@ -10,7 +10,7 @@ const About = () =>{
     <div className=" text-sm bold ">
             Visit My Profile: 
         </div>
-                                        <a href='https://instagram.com/cool_deep_96?igshid=NTc4MTIwNjQ2YQ=='>
+                                        <a href='https://www.instagram.com/cool_deep_96?igsh=bmllMDI1dHcwMTN2'>
                                             <Image className="h-5 w-5 grayscale hover:grayscale-0 transition duration-1000 " src='/instagram.png' alt="instagram" width={`${20}`} height={`${20}`}/>
                                         </a>
                                         <a href='https://www.linkedin.com/in/cool-deep96/'>
