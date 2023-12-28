@@ -50,3 +50,6 @@ const SongCard = ({song, assetUrl}: songTemplate) => {
 }
 
 export default SongCard
+
+
+

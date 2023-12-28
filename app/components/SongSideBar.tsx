@@ -15,7 +15,7 @@ export const SongSideBar =({children}: SongSideBarProps) => {
         <>
             
                 <div className='min-h-screen w-96 border-r-2  dark:border-indigo-500 border-blue-500'>
-                    <div className='text-center py-2 mx-7 text-2xl border-b-2 border-r border-blue-500 dark:border-indigo-500 rounded-2xl dark:bg-indigo-800 bg-blue-200'>
+                    <div className='text-center py-2 px-2 mx-7 text-2xl border-b-2 border-r border-blue-500 dark:border-indigo-500 rounded-2xl dark:bg-indigo-800 bg-blue-200'>
                          My Default Song
                     </div>
                     {children}
