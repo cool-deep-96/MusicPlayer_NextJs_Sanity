@@ -18,3 +18,4 @@ export interface Genre{
     slug: {current: string},
     _id: string
 }
+
