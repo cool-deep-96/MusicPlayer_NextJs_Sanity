@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 
 type songTemplate = {
 
@@ -25,8 +26,8 @@ const SongCard = ({song, assetUrl}: songTemplate) => {
       <Link  href={`/song/${song.slug.current}`}>
 
         <div className='py-2 mt-8 flex flex-row border-b-2 dark:border-indigo-400 border-blue-400'>
-          <div>
-            <img src={`${assetUrl}`} className='h-20 w-20  ' />
+          <div className='h-20 w-20  '>
+            <Image src={`${assetUrl}`}  width={`${100}`} height={`${100}`} alt={`Song Cover Image`}/>
 
           </div>
           <div className='pl-3 w-full'>

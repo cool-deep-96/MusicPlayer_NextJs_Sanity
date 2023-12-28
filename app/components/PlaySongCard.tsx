@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 
 
@@ -122,8 +123,11 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
 
   return (
     <>
-    <div className='place-self-center pb-8'>
-      <img src={`${song.imageUrl}`}/>
+    <div className=' lg:h-[550px] lg:w-[450px] place-self-center pb-8'>
+      <div className=" ">
+        <Image src={`${song.imageUrl}`} width={`${500}`} height={`${600}`} alt={`Song Cover Image`}/>
+      </div>
+      
       <audio  ref={audioPlayer} src={`${song.songUrl}`} ></audio>
       
       <div className="range">
