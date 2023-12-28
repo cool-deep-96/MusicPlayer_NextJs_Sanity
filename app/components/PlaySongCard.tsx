@@ -31,16 +31,35 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
 
     const audioPlayer = useRef<HTMLAudioElement | null>(null);
     const progressBar = useRef<HTMLInputElement| null>(null);
-   
 
+
+    useEffect(() => {
+      const handleLoadedMetadata = () => {
+        console.log('hello')
+        const second:number = Math.floor(audioPlayer?.current?.duration || 0)
+        setDuration(second);
+        progressBar.current?.setAttribute('max', `${second}`);
+      };
+      
+  
+      if (audioPlayer.current) {
+        audioPlayer.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+      }
+  
+      // Clean up the event listener when the component unmounts
+      
+    }, []);
+   
+    
 
 
     useEffect(()=>{
+      ;
       const second:number = Math.floor(audioPlayer?.current?.duration || 0)
       setDuration(second);
       progressBar.current?.setAttribute('max', `${second}`);
  
-    },[audioPlayer?.current?.onloadedmetadata, audioPlayer?.current?.readyState])
+    },[ audioPlayer.current?.onloadedmetadata]);
 
     const handleAudio = () =>{
       if(!isPlaying){
@@ -60,23 +79,26 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
     }
 
     const sliding = ()=>{
-        progressBar.current!.value=`${audioPlayer.current?.currentTime}` ||"0";
+        progressBar.current!.value =`${audioPlayer.current?.currentTime}` ||"0";
         setCurrentPlayedTime(parseInt(progressBar.current?.value|| "0", 10));
+        
+        progressBar.current?.style.setProperty('--selected-region', `${(parseInt(progressBar.current?.value || "0", 10)/ duration )* 100}%`)
         animationId = requestAnimationFrame(sliding);
-        
-        
-        
-      
+    
 
     }
+  
     const changeRange = ()=>{
       const currentTimeInSeconds = parseInt(progressBar.current?.value || "0", 10);
 
       if (!isNaN(currentTimeInSeconds)) {
         audioPlayer.current!.currentTime = currentTimeInSeconds;
       }
+      progressBar.current?.style.setProperty('--selected-region', `${(parseInt(progressBar.current?.value|| "0", 10)/ duration )* 100}%`)
 
-  
+      setCurrentPlayedTime(parseInt(progressBar.current?.value|| "0", 10));
+
+      
       console.log(parseInt(progressBar.current?.value|| "0", 10))
 
 
@@ -95,16 +117,16 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
     }
 
     
-  
+   
     
 
   return (
     <>
-    <div className='place-self-center'>
+    <div className='place-self-center pb-8'>
       <img src={`${song.imageUrl}`}/>
-      <audio ref={audioPlayer} src={`${song.songUrl}`}></audio>
+      <audio  ref={audioPlayer} src={`${song.songUrl}`} ></audio>
       
-      <div>
+      <div className="range">
         <input  type="range" className='w-full' defaultValue="0" ref={progressBar} onChange={changeRange} />
       </div>
       <div className="flex flex-row justify-between">
