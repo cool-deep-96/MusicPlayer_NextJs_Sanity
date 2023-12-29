@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { NextButton, PauseButton, PlayButton, PreviousButton } from "./Icons";
 
 
 
@@ -135,11 +136,11 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
       <p>{calculateTime(duration)}</p>
       </div>
       
-      <div className='flex max-w-screen-sm justify-between text-xl py-6 px-5'>
+      <div className='flex max-w-screen-sm justify-between text-xl py-6 px-5 '>
 
-        <button>previous</button>
-        <button onClick={handleAudio}>{isPlaying? 'Pause':'Play'}</button>
-        <button>next</button>
+        <button><PreviousButton/></button>
+        <button onClick={handleAudio}>{isPlaying? <PauseButton/>:<PlayButton/>}</button>
+        <button><NextButton/></button>
         
 
       </div>

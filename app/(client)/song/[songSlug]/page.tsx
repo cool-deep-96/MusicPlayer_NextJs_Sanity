@@ -37,11 +37,6 @@ export const revalidate= 60;
 
 export  default async  function Page({params}: Params){
   const songData = await getSong(params?.songSlug);
-  console.log(songData);
-
-    
-
-
     
     
     if(!songData){
