@@ -68,6 +68,8 @@ export default async function RootLayout({
                             
                             <div key={song._id}>
                                 <SongCard song={song} assetUrl={assetUrl}/>
+
+
                             </div>
                 
                         )
