@@ -36,7 +36,7 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
 
     useEffect(() => {
       const handleLoadedMetadata = () => {
-        console.log('hello')
+     
         const second:number = Math.floor(audioPlayer?.current?.duration || 0)
         setDuration(second);
         progressBar.current?.setAttribute('max', `${second}`);
@@ -98,9 +98,6 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
       progressBar.current?.style.setProperty('--selected-region', `${(parseInt(progressBar.current?.value|| "0", 10)/ duration )* 100}%`)
 
       setCurrentPlayedTime(parseInt(progressBar.current?.value|| "0", 10));
-
-      
-      console.log(parseInt(progressBar.current?.value|| "0", 10))
 
 
       
