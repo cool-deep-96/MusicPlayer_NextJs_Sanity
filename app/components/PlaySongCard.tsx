@@ -99,10 +99,6 @@ const PlaySongCard = ({song}: PlaySongCardProps) => {
       progressBar.current?.style.setProperty('--selected-region', `${(parseInt(progressBar.current?.value|| "0", 10)/ duration )* 100}%`)
 
       setCurrentPlayedTime(parseInt(progressBar.current?.value|| "0", 10));
-
-
-      
-
     }
 
     const calculateTime = (second: number) => {
